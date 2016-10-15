@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
   # its a frequent practice to place the standard CRUD actions in each controller
   # in the following order: index, show, new, edit, create, update, and destroy
   
+  http_basic_authenticate_with name: "test_user", password: "test_password", except: [:index, :show]
+  
   def index
     @articles = Article.all
   end
